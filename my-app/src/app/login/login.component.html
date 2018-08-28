@@ -1,0 +1,16 @@
+<div style="text-align:center">
+    <h2>
+      Enter your name
+    </h2>
+</div>
+<div style="text-align: center">
+  <form (submit)="loginUser($event)">
+    <div>
+      <input type="text" placeholder="Enter your name" [(ngModel)]='username' name="uname" required><br>
+      <button type="submit">Enter Chat</button>
+    </div>
+  </form>
+</div>
+    
+  
+  
