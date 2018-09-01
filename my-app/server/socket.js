@@ -8,7 +8,7 @@ module.exports = function(app,io){
             console.log('User Disconnected');
         });
         //Respond to getting a new message
-        socket.on('add-mesage',(message)=>{
+        socket.on('add-message',(message)=>{
             //Broadcast the message to all others that are connected to this socket
             io.emit('message',{type:'message',text:message});
         });
