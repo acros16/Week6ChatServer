@@ -18,7 +18,7 @@ export class LoginComponent {
   }
   loginUser(event){
     event.preventDefault();
-
+    //Function to access data for given user. Stores data in localstorage
     this.authServ.login(this.username).subscribe(
       data=>{
         localStorage.setItem('username',data["username"]);
