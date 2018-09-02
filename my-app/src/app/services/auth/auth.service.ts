@@ -20,7 +20,7 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  login(username:string){
+  login(username:string){ //Function to access server data available for given user
     return this.http.post<user>('/api/auth', {'username': username,httpOptions});
   }
 }
