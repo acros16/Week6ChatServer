@@ -1,4 +1,10 @@
 <h2>Welcome {{username}}</h2>>
+<div>
+  Your current email: {{email}}<br>
+  Your current role: {{role}}<br>
+  You are in the following groups:<br>
+  
+</div>
 <button *ngIf="username" (click)="logout()" class="logout">Logout</button>
 
 <input [(ngModel)]="message" />

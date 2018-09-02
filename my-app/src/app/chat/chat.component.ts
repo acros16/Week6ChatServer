@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../services/socket/socket.service';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chat',
@@ -12,6 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 export class ChatComponent implements OnInit {
 
   username: string;
+  email: string;
+  role: string;
   messages = [];
   message = '';
   connection;
@@ -31,6 +31,8 @@ export class ChatComponent implements OnInit {
       //We have a valid username. Subscribe to Chat service and add chat message
       //to the message array each time you are pushed a message from the server.
       this.username = localStorage.getItem('username');
+      this.email = localStorage.getItem('email');
+      this.role = localStorage.getItem('role');
       console.log("Session started for: "+this.username);
       this.connection = this.sockServ.getMessages().subscribe(message=>{
         this.messages.push(message);

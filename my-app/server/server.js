@@ -1,12 +1,21 @@
-const express = require('express')
-const app = express()
-const path = require('path')
+const express = require('express');
+const app = express();
+const path = require('path');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
+const fs = require('fs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(express.static(path.join(__dirname,'../dist/my-app/')))
+app.use(express.static(path.join(__dirname,'../dist/my-app/')));
+app.route('/api/auth').post(function(req, res){
+    var requestedUser = req.body.username;
+    var requestedEmail = req.body.email;
+    var requestedRole = req.body.role;
+    res.send({username: requestedUser,role: requestedRole,email: requestedEmail});
+ });
 require('./routes.js')(app,path);
 require('./socket.js')(app,io);
+require('./routes/auth.js')(app,fs);
+require('./routes/register.js')(app,fs);
 require('./listen.js')(http);
