@@ -5,6 +5,8 @@ module.exports = function(app,fs){
         var userObj;
         //locahost3000:/api/reg?username=abcdefg
         var uname = req.query.username;
+        var role = req.query.role;
+        var email = req.query.email;
 
         fs.readFile('authdata.json','utf-8', function(err,data){
             if (err){

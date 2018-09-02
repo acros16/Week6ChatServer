@@ -24,10 +24,12 @@ export class LoginComponent {
         localStorage.setItem('username',data["username"]);
         localStorage.setItem('email',data["email"]);
         localStorage.setItem('role', data["role"]);
+        localStorage.setItem('groups', JSON.stringify(data["groups"]));
         this.router.navigate(['/chat']);
         console.log("login "+localStorage.getItem("username"));
         console.log("login "+localStorage.getItem("email"));
         console.log("login "+localStorage.getItem("role"));
+        console.log("login "+localStorage.getItem("groups"));
       },
       error=>{
         alert('Error');

@@ -11,16 +11,15 @@ export interface user{
   username: string;
   email: string;
   role: string;
-  groups: string;
 }
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class RegService {
 
   constructor(private http:HttpClient) { }
 
-  login(username:string){
-    return this.http.post<user>('/api/auth', {'username': username,httpOptions});
+  addUser(username:string,role:string,email:string){
+    return this.http.post<user>('/api/reg', {'username': username,'role':role,'email':email,httpOptions});
   }
 }

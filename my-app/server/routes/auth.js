@@ -4,18 +4,18 @@ module.exports = function(app,fs){
 
         // localhost:3000/api/auth?username=Terry
         var uname = req.query.username;
-        var email = req.query.email;
-        var role = req.query.role;
+        var email;
+        var role;
         var userObj;
-        console.log(uname);
+        console.log(username);
         console.log(email);
         console.log(role);
-
+    
         fs.readFile('authdata.json','utf-8',function(err,data){
             if (err) {
                 console.log("error");
                 //Some error happend opening the file. No success
-                res.send({'username':'', 'role':'', 'email':''});
+                res.send({'username':'username', 'role':'fail', 'email':''});
             }else {
                 userObj = JSON.parse(data);
                 for (let i=0; i<userObj.length; i++){
@@ -27,8 +27,9 @@ module.exports = function(app,fs){
                 }
                 //no username was found that matched
                 console.log("nothing found");
-                res.send({'username':'', 'role':'', 'email':''});
+                res.send({'username':'username', 'role':'fail', 'email':''});
             }
-        });
-    });
+        });  
+        console.log(req.body);
+     });
 };

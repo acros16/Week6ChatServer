@@ -10,6 +10,7 @@ module.exports = function(app,io){
         //Respond to getting a new message
         socket.on('add-message',(message)=>{
             //Broadcast the message to all others that are connected to this socket
+            console.log(message);
             io.emit('message',{type:'message',text:message});
         });
     });   

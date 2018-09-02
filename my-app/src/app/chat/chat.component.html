@@ -1,16 +1,73 @@
-<h2>Welcome {{username}}</h2>>
-<div>
-  Your current email: {{email}}<br>
-  Your current role: {{role}}<br>
-  You are in the following groups:<br>
+<div style="background-color:aquamarine">
+  <h2>Welcome {{username}}</h2>>
+  <div>
+    Your current email: {{email}}<br>
+    Your current role: {{role}}<br>
+    You are in the following groups:<br>
+    <div class="groups">
+      <div *ngFor="let group of groups" class="group">
+        {{group}}
+      </div>
+    </div>
+    <div *ngIf="role==='SuperAd'">
+      Add new users here: <br>
+      <input placeholder = "Enter username" [(ngModel)]="newuser" /><br>
+      <input placeholder = "Enter role" [(ngModel)]="newrole" /><br>
+      <input placeholder = "Enter email" [(ngModel)]="newemail" /><br>
+      <button  (click)="addUser()">Add user</button><br><br>
+    </div>
+    
+    
+  </div>
+  <button *ngIf="username" (click)="logout()" class="logout">Logout</button><br><br>
+  <ng-container *ngFor="let group1 of groups">
+    <ng-container *ngIf="group1==='Alpha'">
+        <button  (click)="changeAlpha()" class="changeAlpha">Group Alpha</button><br><br>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngFor="let group2 of groups">
+    <ng-container *ngIf="group2==='Beta'">
+      <button  (click)="changeBeta()" class="changeBeta">Group Beta</button><br><br>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngFor="let group3 of groups">
+    <ng-container *ngIf="group3==='Charlie'">
+      <button  (click)="changeCharlie()" class="changeCharlie">Group Charlie</button><br><br>
+    </ng-container>
+  </ng-container>
+
+  <div *ngIf="Alpha">
+    <input [(ngModel)]="message" />
+    <button (click) = "sendMessage()">Send</button>
+    <br><strong>Current group: Alpha</strong><br>
+    <div class="messages">
+      <div *ngFor="let message1 of messages" class="message" style="background-color: white">
+        {{message1.text}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Beta">
+    <input [(ngModel)]="message" />
+    <button (click) = "sendMessage()">Send</button>
+    <strong>Current group: Beta</strong>
+    <div class="messages">
+      <div *ngFor="let message2 of messages" class="message" style="background-color: white">
+        {{message2.text}}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="Charlie">
+    <input [(ngModel)]="message" />
+    <button (click) = "sendMessage()">Send</button>
+    <strong>Current group: Charlie</strong>
+    <div class="messages">
+      <div *ngFor="let message3 of messages" class="message" style="background-color: white">
+        {{message3.text}}
+      </div>
+    </div>
+  </div>
   
 </div>
-<button *ngIf="username" (click)="logout()" class="logout">Logout</button>
 
-<input [(ngModel)]="message" />
-<button (click) = "sendMessage()">Send</button>
-<div class="messages">
-  <div *ngFor="let message of messages" class="message" style="background-color: gray">
-    {{message.text}}
-  </div>
-</div>
