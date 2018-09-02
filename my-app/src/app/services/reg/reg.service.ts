@@ -19,7 +19,7 @@ export class RegService {
 
   constructor(private http:HttpClient) { }
 
-  addUser(username:string,role:string,email:string){
+  addUser(username:string,role:string,email:string){ // Function to send off data to be written to authdata.JSON file
     return this.http.post<user>('/api/reg', {'username': username,'role':role,'email':email,httpOptions});
   }
 }
