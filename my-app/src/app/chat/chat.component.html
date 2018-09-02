@@ -9,7 +9,7 @@
         {{group}}
       </div>
     </div>
-    <div *ngIf="role==='SuperAd'">
+    <div *ngIf="role==='SuperAd'||role==='GroupAd'">
       Add new users here: <br>
       <input placeholder = "Enter username" [(ngModel)]="newuser" /><br>
       <input placeholder = "Enter role" [(ngModel)]="newrole" /><br>
