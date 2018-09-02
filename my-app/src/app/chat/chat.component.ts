@@ -80,19 +80,19 @@ export class ChatComponent implements OnInit {
     );
   }
 
-  changeAlpha(){
+  changeAlpha(){ //Function to set current group to Alpha
     this.Beta = false;
     this.Charlie = false;
     this.Alpha = true;
   }
 
-  changeBeta(){
+  changeBeta(){ //Function to set current group to Beta
     this.Alpha = false;
     this.Charlie = false;
     this.Beta = true;
   }
 
-  changeCharlie(){
+  changeCharlie(){  //Function to set current group to Charlie
     this.Alpha = false;
     this.Beta = false;
     this.Charlie = true;
@@ -105,7 +105,7 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout(){ // Function to clear local storage upon logging out
     localStorage.clear();
     console.log("Session cleared");
     this.router.navigateByUrl('login');
