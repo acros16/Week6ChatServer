@@ -1,5 +1,5 @@
 # Assignment Chat Server
-Angular chat server project
+Angular chat server project. 2811ICT Web Programming.
 # Git repository organisation
 This git repository was organised in a way such that any additions to the code would be easily comitted and not cause any conflicts. This was done by simply keeping the Angular folder in tact, and uploading it to GitHub as a whole. This allows for consistency in directories and files between both the repository available on a user's computer and the origin.
 # Data Structures
@@ -27,4 +27,4 @@ Socket - Although not required for assignment 1, this service allows users to co
 Modules:
 The app.module.ts contains the AppComponent, LoginComponent and ChatComponent. It also imports the BrowserModule, FormsModule and HttpClientModule for use in its various components. It also calls the RouterModule to set express routes to the Login and Chat components. It also calls the HttpClientModule, SocketService, AuthService and RegService as providers. 
 
-
+This project uses NPM installs of socket.io, path and express.
